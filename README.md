@@ -1,3 +1,5 @@
+The Arugula Project
+---
 This project aims to stream line the grocery list making process by combining ingredients from a user-created list of recipes into a concise grocery list.
 
 Planned features:
