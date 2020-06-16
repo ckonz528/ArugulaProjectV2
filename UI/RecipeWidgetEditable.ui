@@ -18,22 +18,19 @@
     <normaloff>../images/Arugula.svg</normaloff>../images/Arugula.svg</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="QLineEdit" name="lineRecipeName">
+   <item row="1" column="0">
+    <widget class="QLabel" name="lblIngredients">
      <property name="font">
       <font>
-       <pointsize>14</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
-     <property name="placeholderText">
-      <string>Recipe title</string>
-     </property>
-     <property name="clearButtonEnabled">
-      <bool>true</bool>
+     <property name="text">
+      <string>Ingredients</string>
      </property>
     </widget>
    </item>
-   <item row="0" column="1" colspan="2">
+   <item row="0" column="1" colspan="3">
     <layout class="QGridLayout" name="gridTimeInfo">
      <item row="0" column="0">
       <widget class="QLabel" name="lblPrepTimeLabel">
@@ -128,18 +125,6 @@
      </item>
     </layout>
    </item>
-   <item row="1" column="0">
-    <widget class="QLabel" name="lblIngredients">
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Ingredients</string>
-     </property>
-    </widget>
-   </item>
    <item row="1" column="1">
     <widget class="QLabel" name="lblDirections">
      <property name="font">
@@ -172,10 +157,30 @@
      </widget>
     </widget>
    </item>
-   <item row="2" column="1" colspan="2">
+   <item row="2" column="1" colspan="3">
     <widget class="QTextEdit" name="txtEDirections">
      <property name="placeholderText">
       <string>Add recipe instructions here...</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>192</width>
+       <height>17</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="3" column="3">
+    <widget class="QPushButton" name="btnSave">
+     <property name="text">
+      <string>Save</string>
      </property>
     </widget>
    </item>
@@ -225,23 +230,25 @@
      </item>
     </layout>
    </item>
-   <item row="3" column="1">
-    <spacer name="horizontalSpacer_2">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+   <item row="0" column="0">
+    <widget class="QLineEdit" name="lineRecipeName">
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
      </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>192</width>
-       <height>17</height>
-      </size>
+     <property name="placeholderText">
+      <string>Recipe title</string>
      </property>
-    </spacer>
+     <property name="clearButtonEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
    </item>
    <item row="3" column="2">
-    <widget class="QPushButton" name="btnOk">
+    <widget class="QPushButton" name="btnCancel">
      <property name="text">
-      <string>OK</string>
+      <string>Cancel</string>
      </property>
     </widget>
    </item>

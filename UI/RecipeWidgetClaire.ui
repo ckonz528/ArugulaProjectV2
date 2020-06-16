@@ -11,22 +11,14 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Arugula Project - View Recipe</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../images/Arugula.svg</normaloff>../images/Arugula.svg</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout_3">
-   <item row="0" column="0">
-    <widget class="QLabel" name="lblRrecipeTitle">
-     <property name="font">
-      <font>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Recipe Title</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="1" colspan="2">
+   <item row="0" column="1" colspan="3">
     <layout class="QGridLayout" name="gridTimeInfo">
      <item row="0" column="0">
       <widget class="QLabel" name="lblPrepTimeLabel">
@@ -145,24 +137,6 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="1">
-    <widget class="QLabel" name="lblDirections">
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Directions</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0">
-    <widget class="QListWidget" name="lstIngredients"/>
-   </item>
-   <item row="2" column="1" colspan="2">
-    <widget class="QTextBrowser" name="txtDirections"/>
-   </item>
    <item row="3" column="0">
     <layout class="QGridLayout" name="gridTags">
      <item row="0" column="0">
@@ -222,10 +196,47 @@
      </property>
     </spacer>
    </item>
-   <item row="3" column="2">
+   <item row="3" column="3">
     <widget class="QPushButton" name="btnOk">
      <property name="text">
       <string>OK</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="lblRrecipeTitle">
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Recipe Title</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLabel" name="lblDirections">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Directions</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QListWidget" name="lstIngredients"/>
+   </item>
+   <item row="2" column="1" colspan="3">
+    <widget class="QTextBrowser" name="txtDirections"/>
+   </item>
+   <item row="3" column="2">
+    <widget class="QPushButton" name="btnEditRecipe">
+     <property name="text">
+      <string>Edit</string>
      </property>
     </widget>
    </item>
