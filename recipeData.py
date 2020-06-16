@@ -3,6 +3,7 @@ from typing import NamedTuple, Dict
 from quantities import Quantity
 
 class RecipeFlags(Flag):
+    NONE = 0
     GLUTENFREE = auto()
     DAIRYFREE = auto()
     VEGETARIAN = auto()
@@ -36,4 +37,3 @@ guac = Recipe(
     cook=0,
     flags=RecipeFlags.GLUTENFREE | RecipeFlags.DAIRYFREE | RecipeFlags.VEGAN | RecipeFlags.NONALCOHOLIC | RecipeFlags.VEGETARIAN
 )
-print(guac)

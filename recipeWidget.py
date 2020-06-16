@@ -27,6 +27,7 @@ class RecipeView(QWidget, RecipeViewUI):
         self.lblServings.setText(str(recipe.servings))
         self.txtDirections.setText(recipe.directions)
         # write ingredients list
+        self.lstIngredients.clear()
         for ingredient, amount in recipe.ingredients.items():
             string = f'{ingredient}\t({str(amount)})'
             self.lstIngredients.addItem(string)
@@ -37,6 +38,16 @@ class RecipeView(QWidget, RecipeViewUI):
         self.chkVegan.setChecked(bool(recipe.flags & RecipeFlags.VEGAN))
         self.chkNoAlcohol.setChecked(bool(recipe.flags & RecipeFlags.NONALCOHOLIC))
         self.chkHealthy.setChecked(bool(recipe.flags & RecipeFlags.HEALTHY))
+
+
+        self.chkGF.setDisabled(True)
+        self.chkDF.setDisabled(True)
+        self.chkVeg.setDisabled(True)
+        self.chkVegan.setDisabled(True)
+        self.chkNoAlcohol.setDisabled(True)
+        self.chkHealthy.setDisabled(True)
+
+        self.update()
         
 
 class IngredientEditor(QWidget, IngredientEditUI):
@@ -59,10 +70,14 @@ class IngredientEditor(QWidget, IngredientEditUI):
             index = self.comboUnits.findText(unit[0])
             self.comboUnits.setCurrentIndex(index)
 
+        self.update()
+
 class RecipeEdit(QWidget, RecipeEditUI):
     def __init__(self, parent: QWidget, recipe: Recipe):
         super(RecipeEdit, self).__init__(parent)
         self.setupUi(self)
+        self.vbox = QVBoxLayout()
+        self.scrollAreaWidgetContents.setLayout(self.vbox)
         # self.connectAll()
         self.setRecipe(recipe)
 
@@ -76,15 +91,14 @@ class RecipeEdit(QWidget, RecipeEditUI):
         self.spnServings.setValue(recipe.servings)
         self.txtEDirections.setText(recipe.directions)
         # write ingredients list
-        self.vbox = QVBoxLayout()
-
+        for i in range(self.vbox.count()):
+            self.vbox.removeItem(self.vbox.itemAt(i))
+        self.editors = []
         for ingredient, amount in recipe.ingredients.items():
             editor = IngredientEditor(self.scrollAreaWidgetContents, (ingredient, amount))
+            self.editors.append(editor)
             self.vbox.addWidget(editor)
 
-            # string = f'{ingredient}\t({str(amount)})'
-            # self.lstIngredients.addItem(string)
-        self.scrollAreaWidgetContents.setLayout(self.vbox)
 
         # populate checkboxes
         self.chkDF.setChecked(bool(recipe.flags & RecipeFlags.DAIRYFREE))
@@ -94,6 +108,8 @@ class RecipeEdit(QWidget, RecipeEditUI):
         self.chkNoAlcohol.setChecked(bool(recipe.flags & RecipeFlags.NONALCOHOLIC))
         self.chkHealthy.setChecked(bool(recipe.flags & RecipeFlags.HEALTHY))
 
+        self.update()
+
     def getRecipe(self) -> Recipe:
         title = self.lineRecipeName.displayText()
         servings = self.spnServings.value()
@@ -102,17 +118,17 @@ class RecipeEdit(QWidget, RecipeEditUI):
         directions = self.txtEDirections.toPlainText()
         ingredients = {}
         for i in range(self.vbox.count()):
-            ingredient : IngredientEditor = self.vbox.itemAt(i)
+            ingredient : IngredientEditor = self.vbox.itemAt(i).widget()
             units = ingredient.comboUnits.currentText()
             amount = ingredient.dspnAmount.value()
             if units == 'count':
                 quantity = Quantity.count(amount)
             else:
                 quantity = Quantity.of(amount, units)
-
+            
             name = ingredient.lineIngredientName.displayText()
             ingredients[name] = quantity
-        flags = 0
+        flags = RecipeFlags.NONE
         if self.chkDF.isChecked(): flags |= RecipeFlags.DAIRYFREE
         if self.chkGF.isChecked(): flags |= RecipeFlags.GLUTENFREE
         if self.chkHealthy.isChecked(): flags |= RecipeFlags.HEALTHY
@@ -156,8 +172,8 @@ class RecipeWidget(QStackedWidget):
         self.setCurrentWidget(self.editor)
 
     def switchToViewer(self, save: bool):
-        # if save:
-            # self.viewer.setRecipe(self.editor.getRecipe())
+        if save:
+            self.viewer.setRecipe(self.editor.getRecipe())
         self.setCurrentWidget(self.viewer)
 
 
