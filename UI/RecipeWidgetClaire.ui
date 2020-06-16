@@ -6,16 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>538</width>
+    <width>540</width>
     <height>341</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0" colspan="2">
-    <widget class="QLabel" name="L_recipeTitle">
+  <layout class="QGridLayout" name="gridLayout_3">
+   <item row="0" column="0">
+    <widget class="QLabel" name="lblRrecipeTitle">
      <property name="font">
       <font>
        <pointsize>14</pointsize>
@@ -26,50 +26,115 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="4">
-    <widget class="QLabel" name="L_servings">
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Servings</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
+   <item row="0" column="1" colspan="2">
+    <layout class="QGridLayout" name="gridTimeInfo">
+     <item row="0" column="0">
+      <widget class="QLabel" name="lblPrepTimeLabel">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Prep Time</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="lblPrepTime">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>00:00</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2" rowspan="2">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Minimum</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>80</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="lblServingsLabel">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Servings</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLabel" name="lblServings">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>###</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="lblCookTimeLabel">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Cook Time</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="lblCookTime">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>00:00</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
-   <item row="1" column="3">
-    <widget class="QLabel" name="L_prepTime">
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Prep Time</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="4">
-    <widget class="QLabel" name="L_cookTime">
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Cook Time</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0">
-    <widget class="QLabel" name="L_ingredients">
+   <item row="1" column="0">
+    <widget class="QLabel" name="lblIngredients">
      <property name="font">
       <font>
        <pointsize>10</pointsize>
@@ -80,8 +145,8 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="3">
-    <widget class="QLabel" name="L_directions">
+   <item row="1" column="1">
+    <widget class="QLabel" name="lblDirections">
      <property name="font">
       <font>
        <pointsize>10</pointsize>
@@ -92,56 +157,73 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="0" colspan="3">
-    <widget class="QListWidget" name="LW_ingredientList"/>
+   <item row="2" column="0">
+    <widget class="QListWidget" name="lstIngredients"/>
    </item>
-   <item row="3" column="3" colspan="2">
-    <widget class="QTextBrowser" name="TB_directionsText"/>
+   <item row="2" column="1" colspan="2">
+    <widget class="QTextBrowser" name="txtDirections"/>
    </item>
-   <item row="4" column="0">
-    <widget class="QCheckBox" name="CB_gf">
-     <property name="text">
-      <string>Gluten Free</string>
+   <item row="3" column="0">
+    <layout class="QGridLayout" name="gridTags">
+     <item row="0" column="0">
+      <widget class="QCheckBox" name="chkGF">
+       <property name="text">
+        <string>Gluten Free</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QCheckBox" name="chkDF">
+       <property name="text">
+        <string>Dairy Free</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QCheckBox" name="chkVegan">
+       <property name="text">
+        <string>Vegan</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QCheckBox" name="chkVeg">
+       <property name="text">
+        <string>Vegetarian</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QCheckBox" name="chkNoAlcohol">
+       <property name="text">
+        <string>Non-Alcoholic</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QCheckBox" name="chkHealthy">
+       <property name="text">
+        <string>Healthy</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="3" column="1">
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
      </property>
-    </widget>
-   </item>
-   <item row="4" column="1">
-    <widget class="QCheckBox" name="CB_df">
-     <property name="text">
-      <string>Dairy Free</string>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>192</width>
+       <height>17</height>
+      </size>
      </property>
-    </widget>
+    </spacer>
    </item>
-   <item row="4" column="2">
-    <widget class="QCheckBox" name="CB_vegan">
-     <property name="text">
-      <string>Vegan</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="0">
-    <widget class="QCheckBox" name="CB_veg">
-     <property name="text">
-      <string>Vegetarian</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="1">
-    <widget class="QCheckBox" name="CB_noAlcohol">
-     <property name="text">
-      <string>Non-Alcoholic</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="2">
-    <widget class="QCheckBox" name="CB_healthy">
-     <property name="text">
-      <string>Healthy</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="4">
-    <widget class="QPushButton" name="PB_ok">
+   <item row="3" column="2">
+    <widget class="QPushButton" name="btnOk">
      <property name="text">
       <string>OK</string>
      </property>
